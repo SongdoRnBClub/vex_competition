@@ -1,15 +1,17 @@
-#programa userControlDuration(60)
-#programa platform(VEX)
+#pragma userControlDuration(60)
+#pragma platform(VEX)
 #pragma config(Sensor, dgtl1,  sonarSensor,         sensorSONAR_cm)
 
 #include "Vex_Competition_Include.c"
 
+//Definition of Motor
 #define leftMotor port1
 #define rightMotor port2
 #define leftGrap port3
 #define rightGrap port4
 const char pully {port5, port6, port7}
 
+//Definition of Button
 #define leftGrapButtonIncrese Btn5U
 #define rightGrapButtonIncrease Btn6U
 #define leftGrapButtonDecrease Btn5D
@@ -17,6 +19,7 @@ const char pully {port5, port6, port7}
 #define upPullyButton Btn8R
 #define downPullyButton Btn7L
 
+//Definition of Sensor
 #define gyroSensor in1
 #define sonarSensor in2
 
