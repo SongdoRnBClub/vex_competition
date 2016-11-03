@@ -9,10 +9,10 @@
 #define rightMotor port2
 #define leftGrap port3
 #define rightGrap port4
-const char pully {port5, port6, port7}
+const char pully {port5, port6, port7, port8, port9, port10}
 
 //Definition of Button
-#define leftGrapButtonIncrese Btn5U
+#define leftGrapButtonIncrease Btn5U
 #define rightGrapButtonIncrease Btn6U
 #define leftGrapButtonDecrease Btn5D
 #define rightGrapButtonDecrease Btn6D
@@ -33,7 +33,7 @@ void pre_auton(){
 
 void pully(int x){
 	int i;
-	for(i = 0; i < 2 ; i++){
+	for(i = 0; i < 9 ; i++){
 		motor[pully[i]] = x;
 	}
 }
@@ -72,5 +72,7 @@ task usercontrol(){
 		if(vexRT[rightGrapButtonIncrese] == 1){motor[rightGrap] = 30;}else{motor[rightGrap] = 0;}
 		if(vexRT[leftGrapButtonDecrese] == 1){motor[leftGrap] = -30;}else{motor[leftGrap] = 0;}
 		if(vexRT[rightGrapButtonDecrese] == 1){motor[rightGrap] = -30;}else{motor[rightGrap] = 0;}
+		if(vexRT[upPullyButton] == 1){motor[upPully] = 80;}else{motor[upPully] = 0;}
+		if(vexRT[downPullyButton] == 1){motor[downPully] = -80;}else{motor[downPully] = 0;}
 	}
 }
