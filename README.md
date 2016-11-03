@@ -1,2 +1,2 @@
-# vex_competition
-VEX Competition program of RnB Club
+# Vex Competition 로봇 코드
+저희 동아리에서 만든 로봇에 쓰이는 로봇 코드들을 업로드 해놓은 곳입니다.
