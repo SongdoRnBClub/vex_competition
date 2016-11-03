@@ -1,3 +1,6 @@
+//Written By Prokuma, v990315 in 2016
+//License : MIT
+//Organization : Songdo High School RnB Club
 #pragma userControlDuration(60)
 #pragma platform(VEX)
 #pragma config(Sensor, dgtl1,  sonarSensor,         sensorSONAR_cm)
@@ -38,7 +41,7 @@ void pully(int x){
 	}
 }
 
-task autonomoues() {
+task autonomous() {
 	sensorType[gyroSensor] = sensorGyro;
 	while(abs(SensorValue(gyroSensor) < 900){
 		motor[leftMotor] = -25;
@@ -64,7 +67,6 @@ task autonomoues() {
 }
 
 task usercontrol(){
-
 	while(true){
 		motor[leftMotor] = vexRT[Ch3];
 		motor[rightMotor] = vexRT[Ch2];
