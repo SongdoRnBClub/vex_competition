@@ -22,12 +22,9 @@ const char pully {port5, port6, port7, port8, port9, port10}
 #define upPullyButton Btn8R
 #define downPullyButton Btn7L
 
-//Definition of Sensor
-#define gyroSensor in1
-#define sonarSensor in2
-
 //This definition for Auto Mode
-#define pullyTime 300
+#define spinTime 3000
+#define pullyTime 3000
 #define straightTime 3000
 
 void pre_auton(){
@@ -42,8 +39,8 @@ void pully(int x){
 }
 
 task autonomous() {
-	sensorType[gyroSensor] = sensorGyro;
-	while(abs(SensorValue(gyroSensor) < 900){
+	ClearTimer(T1);
+	while(time1[T1] < spinTime){
 		motor[leftMotor] = -25;
 		motor[rightMotor] = 25;
 	}
@@ -51,7 +48,8 @@ task autonomous() {
 	while(time1[T1] < pullyTime){
 		pully(30);
 	}
-	while(abs(SensorValue(gyroSensor) > 0){
+	ClearTimer(T1);
+	while(time1[T1] < spinTime){
 		motor[leftMotor] = 25;
 		motor[rightMotor] = -25;
 	}
