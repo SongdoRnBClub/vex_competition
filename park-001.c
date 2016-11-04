@@ -18,7 +18,7 @@ const char pullyMotor[6] = {port5, port6, port7, port8, port9, port10};
 #define leftGrapButtonIncrese Btn5U
 #define rightGrapButtonIncrese Btn6U
 #define leftGrapButtonDecrese Btn5D
-#define rightGrapButtonDecrese Btn6D```
+#define rightGrapButtonDecrese Btn6D
 #define upPullyButton Btn8R
 #define downPullyButton Btn7L
 
@@ -33,7 +33,7 @@ void pre_auton(){
 
 void pully(int x){
 	int i;
-	for(i = 0; i < 5; i++){
+	for(i = 0; i < 6; i++){
 		motor[pullyMotor[i]] = x;
 	}
 }
@@ -61,27 +61,34 @@ task autonomous() {
 	ClearTimer(T1);
 	while(time1[T1] < pullyTime){
 		pully(30);
-  }
+  	}
 }
 
-task usercontrol() {
+task usercontrol(){
 	while(true){
 		motor[leftMotor] = vexRT[Ch3];
 		motor[rightMotor] = vexRT[Ch2];
-		motor[rightGrap] = vexRT[Btn6U , Btn6D];
-		motor[leftGrap] = vexRT[Btn5U , Btn5D];
-		motor[pullyMotor] = vexRt[Btn8R , Btn7L]; 
-		if(vexRT[leftGrapButtonIncrese] == 1){motor[leftGrap] = 30;}
-	  else{motor[leftGrap] = 0;}
-		if(vexRT[rightGrapButtonIncrese] == 1){motor[rightGrap] = 30;}
-	  else{motor[rightGrap] = 0;}
-		if(vexRT[leftGrapButtonDecrese] == 1){motor[leftGrap] = -30;}
-		else{motor[leftGrap] = 0;}
-		if(vexRT[rightGrapButtonDecrese] == 1){motor[leftGrap] = -30;}
-		else{motor[rightGrap] = 0;}
-		if(vexRT[upPullyButton] == 1){pully = 80;}
-		else{pully(0);}
-		if(vexRT[downPullyButton] == 1){pully = -80;}
-		else{pully(0);}
+		if(vexRT[leftGrapButtonIncrese] == 1){
+			motor[leftGrap] = 30;
+		}else{
+			motor[leftGrap] = 0;
+		}
+		if(vexRT[rightGrapButtonIncrese] == 1){
+			motor[rightGrap] = 30;
+		}else{
+			motor[rightGrap] = 0;
+		}
+		if(vexRT[leftGrapButtonDecrese] == 1){
+			motor[leftGrap] = -30;
+		}else{
+			motor[leftGrap] = 0;
+		}
+		if(vexRT[rightGrapButtonDecrese] == 1){
+			motor[rightGrap] = -30;
+		}else{
+			motor[rightGrap] = 0;
+		}
+		if(vexRT[upPullyButton] == 1){pully(80);}else{pully(0);}
+		if(vexRT[downPullyButton] == 1){pully(-80);}else{pully(0);}
 	}
 }
