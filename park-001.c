@@ -64,15 +64,24 @@ task autonomous() {
   }
 }
 
-task usercontrol(){
+task usercontrol() {
 	while(true){
 		motor[leftMotor] = vexRT[Ch3];
 		motor[rightMotor] = vexRT[Ch2];
-		if(vexRT[leftGrapButtonIncrese] == 1){motor[leftGrap] = 30;}else{motor[leftGrap] = 0;}
-		if(vexRT[rightGrapButtonIncrese] == 1){motor[rightGrap] = 30;}else{motor[rightGrap] = 0;}
-		if(vexRT[leftGrapButtonDecrese] == 1){motor[leftGrap] = -30;}else{motor[leftGrap] = 0;}
-		if(vexRT[rightGrapButtonDecrese] == 1){motor[rightGrap] = -30;}else{motor[rightGrap] = 0;}
-		if(vexRT[upPullyButton] == 1){pully(80);}else{pully(0);}
-		if(vexRT[downPullyButton] == 1){pully(-80);}else{pully(0);}
+		motor[rightGrap] = vexRT[Btn6U , Btn6D];
+		motor[leftGrap] = vexRT[Btn5U , Btn5D];
+		motor[pullyMotor] = vexRt[Btn8R , Btn7L]; 
+		if(vexRT[leftGrapButtonIncrese] == 1){motor[leftGrap] = 30;}
+	  else{motor[leftGrap] = 0;}
+		if(vexRT[rightGrapButtonIncrese] == 1){motor[rightGrap] = 30;}
+	  else{motor[rightGrap] = 0;}
+		if(vexRT[leftGrapButtonDecrese] == 1){motor[leftGrap] = -30;}
+		else{motor[leftGrap] = 0;}
+		if(vexRT[rightGrapButtonDecrese] == 1){motor[leftGrap] = -30;}
+		else{motor[rightGrap] = 0;}
+		if(vexRT[upPullyButton] == 1){pully = 80;}
+		else{pully(0);}
+		if(vexRT[downPullyButton] == 1){pully = -80;}
+		else{pully(0);}
 	}
 }
