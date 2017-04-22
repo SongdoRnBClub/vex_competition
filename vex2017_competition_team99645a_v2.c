@@ -16,7 +16,7 @@
 #pragma autonomousDuration(20)
 #pragma userControlDuration(120)
 
-#include "Vex_Competition_Includes.c"   //Main competition background code...do not modify!    fuck you idiot you made trash
+#include "Vex_Competition_Includes.c"   //Main competition background code...do not modify!    
 
 
 void pre_auton()
